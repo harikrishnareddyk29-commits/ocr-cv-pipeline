@@ -2,8 +2,10 @@
 
 A practical computer vision pipeline for extracting structured information from scanned documents like invoices and ID cards. It combines convolutional neural networks (CNN) for region detection with OCR for text extraction.
 
-## Why This Exists
-Manual data entry from invoices and IDs is error-prone and time-consuming. This project provides a reproducible approach to automate that process with minimal setup.
+[![Python](https://img.shields.io/badge/Python-3.10-blue)](https://www.python.org/) [![OpenCV](https://img.shields.io/badge/OpenCV-4.x-red)](https://opencv.org/) [![FastAPI](https://img.shields.io/badge/FastAPI-API-green)](https://fastapi.tiangolo.com/) [![Tesseract](https://img.shields.io/badge/Tesseract-OCR-yellow)](https://github.com/tesseract-ocr/tesseract)
+
+## Why This Exists  
+Manual data entry from invoices and IDs is error‑prone and time‑consuming. This project provides a reproducible approach to automate that process with minimal setup.
 
 ## What It Does
 - Preprocesses images (resize, normalize)
@@ -20,29 +22,29 @@ Manual data entry from invoices and IDs is error-prone and time-consuming. This 
 
 ## Architecture
 ```
-┌───────────────┐
+┌────────────────┐
 │   Images     │
-└─────┬─────┘
-       │  Preprocess (resize, grayscale, etc.)
-       ▼
-┌──────┘
-│   CNN Model  │ — Detect ROIs (bounding boxes)
-└─────┘
-       │
-       ▼
-┌──────┘
-│   Crop ROIs  │
-└─────┘
-       │
-       ▼
-┌──────┘
-│    OCR       │ — Extract text from each crop
-└─────┘
-       │
-       ▼
-┌──────┘
-│ Structured   │ — Assemble JSON output
-│    Output    │
+└───────┬──────┘
+        │  Preprocess (resize, grayscale, etc.)
+        ▼
+┌────────┘
+│   CNN Model   │ — Detect ROIs (bounding boxes)
+└──────┘
+        │
+        ▼
+┌───────┘
+│   Crop ROIs   │
+└──────┘
+        │
+        ▼
+┌───────┘
+│     OCR       │ — Extract text from each crop
+└──────┘
+        │
+        ▼
+┌───────┘
+│ Structured    │ — Assemble JSON output
+│    Output     │
 └─────────┘
 ```
 
@@ -95,8 +97,12 @@ Returns:
 }
 ```
 
-## Features
+## Real Use Cases
+- Automating invoice intake for accounting and expense management
+- Verifying ID cards during customer onboarding (KYC)
+- Digitizing paper records into searchable archives
 
+## Features
 - Configurable CNN backbone
 - Pluggable OCR engine (default Tesseract)
 - Batch processing script
@@ -104,12 +110,10 @@ Returns:
 - Tests for key components
 
 ## Future Improvements
-
 - Train a better detection model on more document types
-- Add field-level validation and corrections
+- Add field‑level validation and corrections
 - Provide a lightweight web UI for uploading images
 - Support handwriting recognition
 
 ## License
-
 MIT — see LICENSE for details.
